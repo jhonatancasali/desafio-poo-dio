@@ -1,0 +1,142 @@
+Boa! 🚀 Bora **desmistificar a Programação Orientada a Objetos (POO) em Java** de forma clara, prática e sem enrolação.
+
+---
+
+## 🌎 O que é POO?
+
+POO (Programação Orientada a Objetos) é um **paradigma de programação** que organiza o código em **objetos**, que representam coisas do mundo real ou conceitos, cada um com seus **atributos** (características) e **métodos** (ações).
+
+---
+
+## 🧩 Os 4 Pilares da POO
+
+### 1. **Abstração**
+
+É o processo de **modelar um objeto real** para o código, focando apenas no que importa para o problema.
+➡️ Exemplo: um `Carro` tem `cor`, `modelo` e pode `acelerar()`, mas não precisamos modelar quantos parafusos ele tem.
+
+```java
+class Carro {
+    String modelo;
+    String cor;
+
+    void acelerar() {
+        System.out.println("O carro está acelerando...");
+    }
+}
+```
+
+---
+
+### 2. **Encapsulamento**
+
+Esconder os detalhes internos e permitir acesso apenas de forma controlada.
+➡️ Usamos `private` nos atributos e `getters/setters` para acessar.
+
+```java
+class ContaBancaria {
+    private double saldo;
+
+    public ContaBancaria(double saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void depositar(double valor) {
+        saldo += valor;
+    }
+
+    public void sacar(double valor) {
+        if (valor <= saldo) saldo -= valor;
+        else System.out.println("Saldo insuficiente!");
+    }
+}
+```
+
+---
+
+### 3. **Herança**
+
+Permite que uma classe herde características e comportamentos de outra.
+➡️ A classe `Cachorro` herda de `Animal`.
+
+```java
+class Animal {
+    void comer() {
+        System.out.println("O animal está comendo...");
+    }
+}
+
+class Cachorro extends Animal {
+    void latir() {
+        System.out.println("O cachorro está latindo...");
+    }
+}
+```
+
+---
+
+### 4. **Polimorfismo**
+
+Um mesmo método pode ter **diferentes comportamentos** dependendo do contexto.
+➡️ Isso pode ser feito sobrescrevendo métodos (`@Override`) ou sobrecarregando métodos (mesmo nome, parâmetros diferentes).
+
+```java
+class Animal {
+    void emitirSom() {
+        System.out.println("Som genérico do animal");
+    }
+}
+
+class Gato extends Animal {
+    @Override
+    void emitirSom() {
+        System.out.println("Miau!");
+    }
+}
+
+class Cachorro extends Animal {
+    @Override
+    void emitirSom() {
+        System.out.println("Au au!");
+    }
+}
+```
+
+---
+
+## 🎯 Mini Desafio (POO na prática)
+
+Implemente um sistema simples de **cadastro de veículos**:
+
+* `Veiculo` → classe base com atributos `marca` e `ano`.
+* `Carro` e `Moto` → herdam de `Veiculo`.
+* Cada classe deve ter um método `exibirInfo()` que imprime os dados (polimorfismo).
+
+➡️ Exemplo de uso:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Veiculo carro = new Carro("Toyota", 2020, 4);
+        Veiculo moto = new Moto("Honda", 2019, 150);
+
+        carro.exibirInfo();
+        moto.exibirInfo();
+    }
+}
+```
+
+**Saída esperada:**
+
+```
+Carro - Marca: Toyota, Ano: 2020, Portas: 4
+Moto - Marca: Honda, Ano: 2019, Cilindradas: 150
+```
+
+---
+
+👉 Quer que eu escreva o código completo desse desafio (com as classes `Veiculo`, `Carro` e `Moto`) já pronto para você rodar no Java?
